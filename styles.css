@@ -1,0 +1,254 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #020617;
+  color: #e5e7eb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  padding: 1rem 1.25rem;
+  background: #020617;
+  border-bottom: 1px solid #1f2937;
+}
+
+.app-title h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.app-title .subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.status-bar {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  align-items: center;
+}
+
+.status-dot {
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.status-dot.online {
+  background: #065f46;
+  color: #d1fae5;
+}
+
+.status-dot.offline {
+  background: #7f1d1d;
+  color: #fee2e2;
+}
+
+.status-dot.changing {
+  background: #78350f;
+  color: #ffedd5;
+}
+
+.connection-info {
+  color: #9ca3af;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1.25rem 1rem;
+  gap: 0.75rem;
+}
+
+.control-panel {
+  background: #020617;
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #1f2937;
+}
+
+.control-panel label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+.url-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#target-url {
+  flex: 1;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #4b5563;
+  background: #020617;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+}
+
+#target-url:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+#load-btn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: #3b82f6;
+  color: #e5e7eb;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+#load-btn:hover {
+  background: #2563eb;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  line-height: 1.4;
+}
+
+.frame-wrapper {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #1f2937;
+}
+
+iframe#external-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 60vh;
+  border: none;
+  background: #020617;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-content {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #4b5563;
+  background: rgba(15, 23, 42, 0.9);
+  font-size: 0.85rem;
+  text-align: center;
+  color: #e5e7eb;
+}
+
+.app-footer {
+  padding: 0.5rem 1.25rem 0.75rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+  border-top: 1px solid #1f2937;
+}
+.status-panel {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid #1f2937;
+  border-radius: 0.75rem;
+  background: #0f172a;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.manual-btn {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.7rem;
+  background: #3b82f6;
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.manual-btn:hover {
+  background: #2563eb;
+}
+
+.log-box {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+#log-output {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 6px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.5rem;
+  white-space: pre-wrap;
+}
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  background: #1f2937;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  z-index: 999;
+}
+
+.bottom-bar button {
+  color: white;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+}
+
+.iframe-container {
+  padding-bottom: 60px; /* 騰空給 bottom bar */
+}
+
+.bookmark-bar, .history-bar {
+  margin-top: 8px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.35);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  z-index: 1000;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <title>PWA 外部頁面自動重載器 v1.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- PWA 相關 -->
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- iOS PWA 支援 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>PWA External Viewer</h1>
+    <div id="network-status" class="status">偵測中...</div>
+  </header>
+
+  <section class="control-panel">
+    <input id="target-url" type="text" placeholder="輸入網址..." />
+
+    <button id="load-btn">載入</button>
+
+    <div class="bookmark-bar">
+      <button id="add-bookmark">＋加入書籤</button>
+      <select id="bookmark-list"></select>
+    </div>
+
+    <div class="history-bar">
+      <label>最近瀏覽：</label>
+      <select id="history-list"></select>
+    </div>
+  </section>
+
+  <section class="iframe-container">
+    <iframe id="external-frame"></iframe>
+  </section>
+
+  <section class="bottom-bar">
+    <button id="btn-home">Home</button>
+    <button id="btn-back">←</button>
+    <button id="btn-forward">→</button>
+    <button id="btn-reload">Reload</button>
+    <button id="btn-bookmark-panel">Bookmarks</button>
+  </section>
+
+  <!-- Loading Overlay -->
+  <div id="overlay-message" class="overlay hidden">
+    <div id="overlay-text">載入中…</div>
+  </div>
+
+  <!-- 狀態面板（來自 v1.2） -->
+  <div class="status-panel">
+    <div>目前 IP：<span id="current-ip">偵測中…</span></div>
+    <div>Reload 次數：<span id="reload-count">0</span></div>
+    <button id="manual-reload" class="manual-btn">手動重新連線</button>
+
+    <details class="log-box">
+      <summary>檢視日誌</summary>
+      <pre id="log-output"></pre>
+    </details>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+
+</html>
